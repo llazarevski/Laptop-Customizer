@@ -52,8 +52,12 @@ class App extends Component {
           <h1>ELF Computing | Laptops</h1>
         </header>
         <main>
-          <FeatureList />
-          <Cart />
+          <FeatureList features={this.props.features}/>
+          <Cart 
+          usCurrencyFormat = {USCurrencyFormat}
+          selected={this.state.selected}
+          updateFeature ={(feature, newValue) => this.updateFeature(feature, newValue)}/>
+          
         </main>
       </div>
     );

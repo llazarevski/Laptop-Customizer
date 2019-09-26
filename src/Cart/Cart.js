@@ -8,8 +8,16 @@ import CartTotal from '../CartTotal/CartTotal';
     render(){
         return(
         <section className="main__summary">
-            <CartListItem />
-            <CartTotal />
+            <CartListItem 
+                selected = {this.props.selected}
+                usCurrencyFormat = {this.props.usCurrencyFormat}
+                updateFeature = {this.props.updateFeature}
+            />
+            <CartTotal 
+              usCurrencyFormat = {this.props.usCurrencyFormat}
+              selected ={this.props.selected}
+              updateFeature= {this.props.updateFeature}
+            />
           </section>
         )
     }
