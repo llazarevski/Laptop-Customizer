@@ -1,17 +1,38 @@
 import React, {Component} from 'react';
 import './FeatureList.css';
-import FeatureItem from './FeatureItem/FeatureItem';
+import FeatureItem from '../FeatureItem/FeatureItem';
 
 class FeatureList extends React.Component{
-    render(){
-        return(
-            <form className="main__form">
-                <h2>Customize your laptop</h2>
-                <FeatureItem features={this.props.features}/>
-          </form>
-        )
-
-    }
+    render() {
+        const features = Object.keys(this.props.features).map((feature, idx) => {
+          const featureHash = feature + '-' + idx;
+          const options = this.props.features[feature].map(item => {
+            const itemHash = this.props.slugify(JSON.stringify(item));
+            return (
+              <div key={this.itemHash} className="feature__item">
+                <input
+                  type="radio"
+                  id={this.itemHash}
+                  className="feature__option"
+                  name={this.slugify(this.feature)}
+                  checked={item.name === this.state.selected[this.feature].name}
+                  onChange={e => this.updateFeature(feature, item)}
+                />
+                <label htmlFor={this.itemHash} className="feature__label">
+                  {item.name} ({this.props.usCurrencyFormat.format(item.cost)})
+                </label>
+                
+              </div>
+              
+            );
+          });
+        });
+        return (
+            <FeatureItem featureHash = {featureHash}
+                options = {options}
+                
+                />
+          );
 }
-
+}
 export default FeatureList;

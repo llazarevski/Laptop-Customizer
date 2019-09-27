@@ -11,11 +11,11 @@ class CartListItem extends React.Component{
         return(
             <div className='CartListItem'>
                 <h2>Your cart</h2>
-                  <div className="summary__option" key={featureHash}>
+                  <div className="summary__option" key={this.featureHash}>
                     <div className="summary__option__label">{this.props.feature} </div>
-                    <div className="summary__option__value">{selectedOption.name}</div>
+                    <div className="summary__option__value">{this.selectedOption.name}</div>
                     <div className="summary__option__cost">
-                      {this.props.usCurrencyFormat.format(selectedOption.cost)}
+                      {this.props.usCurrencyFormat.format(this.selectedOption.cost)}
                     </div>
                   </div>
             </div>
