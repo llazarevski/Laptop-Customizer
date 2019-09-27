@@ -15,8 +15,8 @@ class FeatureList extends React.Component{
                   type="radio"
                   id={this.itemHash}
                   className="feature__option"
-                  name={this.slugify(this.feature)}
-                  checked={item.name === this.state.selected[this.feature].name}
+                  name={slugify(feature)}
+                  checked={item.name === this.props.selected[feature].name}
                   onChange={e => this.updateFeature(feature, item)}
                 />
                 <label htmlFor={this.itemHash} className="feature__label">
