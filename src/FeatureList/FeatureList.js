@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import './FeatureList.css';
 import FeatureItem from '../FeatureItem/FeatureItem';
+import slugify from 'slugify';
 
 class FeatureList extends React.Component{
     render() {
         const features = Object.keys(this.props.features).map((feature, idx) => {
           const featureHash = feature + '-' + idx;
           const options = this.props.features[feature].map(item => {
-            const itemHash = this.props.slugify(JSON.stringify(item));
+            const itemHash = slugify(JSON.stringify(item));
             return (
               <div key={this.itemHash} className="feature__item">
                 <input
@@ -27,12 +28,7 @@ class FeatureList extends React.Component{
             );
           });
         });
-        return (
-            <FeatureItem featureHash = {featureHash}
-                options = {options}
-                
-                />
-          );
+        return features;
 }
 }
 export default FeatureList;
