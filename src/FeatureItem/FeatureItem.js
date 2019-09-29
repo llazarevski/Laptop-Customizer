@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './FeatureItem.css';
+import slugify from 'slugify';
 
 
 class FeatureItem extends React.Component{
@@ -18,6 +19,7 @@ class FeatureItem extends React.Component{
             <label htmlFor={this.itemHash} className="feature__label">
               {item.name} ({this.props.usCurrencyFormat.format(item.cost)})
             </label>
+            <FeatureItem key={itemHash}/>
           </div>
             <fieldset className="feature" key={this.props.featureHash}>
                 <legend className="feature__name">
@@ -26,6 +28,7 @@ class FeatureItem extends React.Component{
                 {this.props.options}
             </fieldset>
             </>
+            
             );
         };
 }

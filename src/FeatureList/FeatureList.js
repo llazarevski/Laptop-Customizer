@@ -10,12 +10,15 @@ class FeatureList extends React.Component{
           const options = this.props.features[feature].map(item => {
             const itemHash = slugify(JSON.stringify(item));
             return (
-              <FeatureItem />
+                <FeatureItem key={itemHash}
+                 options={options}
+                 featureHash={featureHash}/>
               
             );
           });
         });
-        return features
+       
+        return features;
         
 }
 }
