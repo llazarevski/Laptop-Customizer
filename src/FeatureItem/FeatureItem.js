@@ -7,19 +7,19 @@ class FeatureItem extends React.Component{
         render() {
           return (
               <>
-            <div key={this.itemHash} className="feature__item">
+            <div key={this.props.itemHash} className="feature__item">
             <input
               type="radio"
-              id={this.itemHash}
+              id={this.props.itemHash}
               className="feature__option"
-              name={slugify(feature)}
-              checked={item.name === this.props.selected[feature].name}
-              onChange={e => this.updateFeature(feature, item)}
+              name={slugify(this.props.feature)}
+              checked={this.props.item.name === this.props.selected[this.props.feature].name}
+              onChange={e => this.updateFeature(this.props.feature, this.props.item)}
             />
-            <label htmlFor={this.itemHash} className="feature__label">
-              {item.name} ({this.props.usCurrencyFormat.format(item.cost)})
+            <label htmlFor={this.props.itemHash} className="feature__label">
+              {this.props.item.name} ({this.props.usCurrencyFormat.format(this.props.item.cost)})
             </label>
-            <FeatureItem key={itemHash}/>
+            <FeatureItem key={this.props.itemHash}/>
           </div>
             <fieldset className="feature" key={this.props.featureHash}>
                 <legend className="feature__name">

@@ -12,13 +12,16 @@ class FeatureList extends React.Component{
             return (
                 <FeatureItem key={itemHash}
                  options={options}
-                 featureHash={featureHash}/>
+                 featureHash={featureHash}
+                 itemHash ={itemHash}
+                 item={item}/>
               
             );
           });
         });
        
-        return features;
+        return features
+        
         
 }
 }
