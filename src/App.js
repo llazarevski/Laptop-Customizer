@@ -54,7 +54,8 @@ class App extends Component {
         <main>
           <FeatureList features={this.props.features}
             selected={this.state.selected}
-            usCurrencyFormat = {USCurrencyFormat}/>
+            usCurrencyFormat = {USCurrencyFormat}
+            updateFeature ={(feature, newValue) => this.updateFeature(feature, newValue)}/>
           <Cart 
             usCurrencyFormat = {USCurrencyFormat}
             selected={this.state.selected}
